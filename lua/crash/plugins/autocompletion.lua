@@ -4,18 +4,11 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		{
-			"L3MON4D3/LuaSnip",
-			version = "v2.*",
-			build = "make install_jsregexp",
-		},
-		"saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
 		"onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
-
-		local luasnip = require("luasnip")
 
 		local lspkind = require("lspkind")
 
@@ -23,18 +16,13 @@ return {
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
 			mapping = cmp.mapping.preset.insert({
 				["<ESC>"] = cmp.mapping.abort(),
 				["<TAB>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
+                { name = "nvim_lsp_signature_help" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}),
