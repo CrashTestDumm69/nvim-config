@@ -15,6 +15,7 @@ return {
 				"lua_ls",
 				"clangd",
 				"pylsp",
+                "rust_analyzer",
 			},
 		})
     end

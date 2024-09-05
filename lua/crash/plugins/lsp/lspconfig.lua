@@ -57,6 +57,20 @@ return {
 					},
 				})
 			end,
+            ["rust_analyzer"] = function()
+                lspconfig["rust_analyzer"].setup({
+                    capabilites = capabilites,
+                    filetypes = {"rust"},
+                    root_dir = require "lspconfig/util".root_pattern("Cargo.toml"),
+                    settings = {
+                        ['rust-analyzer'] = {
+                            cargo = {
+                                allFeatures = true,
+                            },
+                        },
+                    },
+                })
+            end,
 		})
 	end,
 }
