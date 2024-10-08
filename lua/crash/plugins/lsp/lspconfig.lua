@@ -71,6 +71,17 @@ return {
                     },
                 })
             end,
+            ["clangd"] = function()
+                lspconfig["clangd"].setup({
+                    capabilites = capabilites,
+                    cmd = {
+                        "clangd",
+                        "--background-index",
+                        "--header-insertion=never",
+                        "--clang-tidy"
+                    }
+                })
+            end
 		})
 	end,
 }
