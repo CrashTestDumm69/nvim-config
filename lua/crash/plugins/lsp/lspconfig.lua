@@ -76,7 +76,6 @@ return {
                     capabilites = capabilites,
                     cmd = {
                         "clangd",
-                        "--background-index",
                         "--header-insertion=never",
                         "--clang-tidy"
                     }
